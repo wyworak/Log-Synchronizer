@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         final URL resource = Main.class.getClassLoader().getResource(CSV_FILE);
         final LogSynchronizer logSynchronizer = new LogSynchronizer();
-        final List<String[]> csvData = logSynchronizer.readData(resource.getFile());
+        final List<String[]> csvData = logSynchronizer.readData(resource.getFile(), false);
         final List<String[]> resampledData = logSynchronizer.logResampling(csvData, 16, "13", "14", 13);
 
         for (int i = 0; i < resampledData.size(); i++) {
